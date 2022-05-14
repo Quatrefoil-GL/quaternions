@@ -1,4 +1,4 @@
-//! A simple and type agnostic quaternion math library designed for reexporting
+//! a simpler quaternion math library with traits.
 //!
 //! ```rust
 //! extern crate quaternions;
@@ -22,11 +22,20 @@
 //! b1.square_length();
 //! b1.length();
 //! b1.inverse();
+//!```
+//!
+//! There are also mutable APIs:
+//!
+//! ```rust
+//! extern crate quaternions;
+//! use quaternions::{Quaternion, q, qi};
 //!
 //! let mut c = Quaternion::id();
-//! c += b2;
-//! c -= b1;
-//! c *= b2;
+//! let b = qi::<f32>(1, 2, 3, 4);
+//!
+//! c += b;
+//! c -= b;
+//! c *= b;
 //! // no division
 //! c.inverse_mut();
 //! c.conjugate_mut();
@@ -34,7 +43,7 @@
 //! ```
 //!
 
-use std::ops::{Add, AddAssign, Div, Mul, MulAssign, Sub, SubAssign};
+use std::ops::{Add, AddAssign, Div, Mul, MulAssign, Neg, Sub, SubAssign};
 
 use num_traits::Float;
 
@@ -129,16 +138,6 @@ where
     self.x = -self.x;
     self.y = -self.y;
     self.z = -self.z;
-  }
-
-  /// negate value of a quaternion
-  pub fn negate(&self) -> Self {
-    Quaternion {
-      w: -self.w,
-      x: -self.x,
-      y: -self.y,
-      z: -self.z,
-    }
   }
 
   /// Computes the square length of a quaternion.
@@ -283,6 +282,22 @@ where
     self.x = self.x - other.x;
     self.y = self.y - other.y;
     self.z = self.z - other.z;
+  }
+}
+
+impl<T> Neg for Quaternion<T>
+where
+  T: Float,
+{
+  type Output = Self;
+  /// negate number
+  fn neg(self) -> Self::Output {
+    Quaternion {
+      w: -self.w,
+      x: -self.x,
+      y: -self.y,
+      z: -self.z,
+    }
   }
 }
 

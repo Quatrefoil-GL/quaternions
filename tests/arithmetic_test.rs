@@ -32,6 +32,9 @@ fn test_arithmetic() {
   assert_eq!(Quaternion::default(), qi::<f32>(0, 0, 0, 0));
 
   assert_eq!(qi::<f32>(1, 2, 3, 4).dot(&qi::<f32>(5, 6, 7, 8)), 70.);
+
+  let a = qi::<f64>(1, 2, 3, 4);
+  assert_eq!(-a, qi::<f64>(-1, -2, -3, -4));
 }
 
 #[test]
