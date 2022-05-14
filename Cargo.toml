@@ -2,18 +2,16 @@
 name = "quaternions"
 version = "0.5.0-a1"
 authors = [
-    "bvssvni <bvssvni@gmail.com>",
-    "Steve Jahns <s.t.jahns@gmail.com>",
-    "Red Hara <hara@protonmail.ch>",
     "Jon <jiyinyiyong@gmail.com>"
 ]
 edition = "2021"
 keywords = ["quaternion", "math", "piston"]
-description = "A simple and type agnostic quaternion math library designed for reexporting"
+description = "simple quaternion arithmetic with traits"
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/PistonDevelopers/quaternion.git"
-homepage = "https://github.com/PistonDevelopers/quaternion"
+documentation = "https://docs.rs/crate/quaternions/"
+repository = "https://github.com/Quaterfoil-GL/quaternion.git"
+homepage = "https://github.com/Quaterfoil-GL/quaternion"
 
 [lib]
 
