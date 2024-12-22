@@ -5,7 +5,7 @@ use quaternions::{q, qi, Quaternion};
 /// Tests
 
 /// Fudge factor for float equality checks
-static EPSILON: f32 = std::f32::EPSILON;
+static EPSILON: f32 = f32::EPSILON;
 static PI: f32 = std::f32::consts::PI;
 
 #[test]
